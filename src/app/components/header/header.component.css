@@ -1,0 +1,24 @@
+mat-toolbar {
+    background-color: var(--azulescuro);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.container-menu {
+    
+}
+
+.container-menu a {
+    text-decoration: none;
+    color: white;
+    margin: 0 10px 0 10px;
+}
+
+.container-menu a:hover{
+    background-color: blue;
+    padding: 10px;
+    border: 1px solid white;
+    border-radius: 8px;
+}
