@@ -14,6 +14,7 @@ mat-toolbar {
     text-decoration: none;
     color: white;
     margin: 0 10px 0 10px;
+    cursor: pointer;
 }
 
 .container-menu a:hover{

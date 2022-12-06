@@ -5,6 +5,7 @@ import { LoginRoutingModule } from './login-routing.module';
 import { LoginComponent } from './login/login.component';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { MaterialModule } from 'src/app/shared/material/material.module';
     CommonModule,
     LoginRoutingModule,
     ComponentsModule, // importando o módulo para ter a todos os componentes/fragmentos da página
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ]
 })
 export class LoginModule { }

@@ -1,19 +1,20 @@
 <app-header>
     <ng-container>
-        <div class="container">
+        <div  class="container">
             <p>Página de login</p>
-            <form>
+            <form [formGroup]="formLogin">
                 <mat-form-field class="full-width" appearance="outline">
-                    <mat-label>Nome</mat-label>
-                    <input type="text" name="nome" matInput placeholder="Ex. Pedro Alves" formControlName="nome">
+                    <mat-label>Email</mat-label>
+                    <input type="email" name="email" matInput placeholder="Ex. exemplo@gmail.com" formControlName="email">
                 </mat-form-field>
 
                 <mat-form-field class="full-width" appearance="outline">
                     <mat-label>Senha</mat-label>
                     <input type="password" name="senha" matInput placeholder="Exemplo1234" formControlName="senha">
                 </mat-form-field>
-                <button type="submit" mat-raised-button color="primary">ACESSAR</button>
+                <button type="submit" class="full-width" mat-raised-button color="primary" (click)="logar()">ACESSAR</button>
             </form>
+       
         </div>
     </ng-container>
 </app-header>
