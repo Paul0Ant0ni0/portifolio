@@ -5,6 +5,7 @@ import { ProjetoRoutingModule } from './projeto-routing.module';
 import { ProjetoComponent } from './projeto/projeto.component';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { MaterialModule } from 'src/app/shared/material/material.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { MaterialModule } from 'src/app/shared/material/material.module';
     CommonModule,
     ProjetoRoutingModule,
     ComponentsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule 
   ]
 })
 export class ProjetoModule { }

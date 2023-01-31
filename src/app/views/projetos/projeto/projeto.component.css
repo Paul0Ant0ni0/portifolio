@@ -1,3 +1,28 @@
+.box {
+    width: 70%;
+}
+
+.container-form {
+    display: flex;
+    flex-direction: row;
+
+}
+
+
+.btn {
+    width: 25%;
+    background-color: var(--azulescuro);
+}
+
+.btn:hover{
+    background-color: #883b8f;
+    color: aliceblue;
+}
+
+.btn:active{
+    transform: scale(0.9);
+}
+
 fieldset {
     border-radius: 10px;
 }

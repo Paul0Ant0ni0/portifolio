@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
@@ -8,13 +9,23 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class ProjetoComponent implements OnInit {
 
+  public formProjeto!: FormGroup;
   public readonly img: string = '/assets/images/add.img.svg';
   public fotoUrl: string = '';
   public isLoadUpload: boolean = false;
 
   constructor(
-    private storage: StorageService
-  ) { }
+    private storage: StorageService,
+    fb: FormBuilder
+
+  ) {
+    this.formProjeto = fb.group({
+      nome: ['', Validators.required],
+      site: ['', Validators.required],
+      repositorioGit: ['', Validators.required],
+      foto: ['', Validators.required],
+    })
+   }
 
   ngOnInit(): void {
   }

@@ -1,39 +1,50 @@
 <app-header>
-    <ng-container>
-        <mat-card>
+    <ng-container class="container">
+        <mat-card class="box">
             <mat-card-title>
                 Cadastrar Projetos
             </mat-card-title>
             <mat-card-content>
-                <form>
-                
-                <section class="double-width">
-                    <mat-form-field appearance="outline">
-                        <mat-label>Nome do projeto</mat-label>
-                        <input matInput type="text">
-                    </mat-form-field>
-                    <mat-form-field appearance="outline">
-                        <mat-label>Link do site</mat-label>
-                        <input matInput type="text">
-                    </mat-form-field>
-
-                    <mat-form-field appearance="outline">
-                        <mat-label>Link do repositório (github)</mat-label>
-                        <input matInput type="text">
-                    </mat-form-field>
-                </section>
-                <section class="double-width">
-                    <fieldset class="img">
-                        <legend>Selecione uma foto: *</legend>
-                        <img src="{{ fotoUrl || img  }}" alt="capa" (click)="inputFile.click()">
-                        <input class="btn-add-img" #inputFile type="file" (change)="addImg($event)">
-                        <figure><strong>Arquivo: </strong>{{inputFile.value}}...</figure>
-                        <mat-progress-bar mode="indeterminate" *ngIf="isLoadUpload"></mat-progress-bar>
-                    </fieldset>
-                </section>
-
-                    <button type="submit" mat-raised-button color="primary">SALVAR</button>
+                <form [formGroup]="formProjeto">
+                <div class="container-form">
+                    <section class="double-width">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Nome do projeto</mat-label>
+                            <input matInput type="text" name="nome" formControlName="nome">
+                            <mat-error *ngIf="formProjeto.get('nome')?.getError('required')">
+                                Este campo é obrigatório
+                            </mat-error>
+                        </mat-form-field>
+                      
+                        <mat-form-field appearance="outline">
+                            <mat-label>Link do site</mat-label>
+                            <input matInput type="text" name="site" formControlName="site">
+                            <mat-error *ngIf="formProjeto.get('nome')?.getError('required')">
+                                Este campo é obrigatório
+                            </mat-error>
+                        </mat-form-field>
+    
+                        <mat-form-field appearance="outline">
+                            <mat-label>Link do repositório (github)</mat-label>
+                            <input matInput type="text" name="repositorioGit" formControlName="repositorioGit">
+                            <mat-error *ngIf="formProjeto.get('nome')?.getError('required')">
+                                Este campo é obrigatório
+                            </mat-error>
+                        </mat-form-field>
+                    </section>
+                    <section class="double-width">
+                        <fieldset class="img">
+                            <legend>Selecione uma foto: *</legend>
+                            <img src="{{ fotoUrl || img  }}" alt="capa" (click)="inputFile.click()">
+                            <input class="btn-add-img" #inputFile type="file" (change)="addImg($event)" formControlName="foto">
+                            <figure><strong>Arquivo: </strong>{{inputFile.value}}...</figure>
+                            <mat-progress-bar mode="indeterminate" *ngIf="isLoadUpload"></mat-progress-bar>
+                        </fieldset>
+                    </section>
+                </div>
+                    <button class="btn" mat-raised-button color="primary">SALVAR</button>
                 </form>
+                
             </mat-card-content>
 
 
