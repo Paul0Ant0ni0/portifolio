@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 
 
@@ -20,8 +21,9 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     AppRoutingModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig), // inializando o nosso projeto firebase
-    AngularFireAuthModule // reponsável por fazer a autenticação dos usuários da aplicação
-
+    AngularFireAuthModule, // responsável por fazer a autenticação dos usuários da aplicação
+    AngularFirestoreModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

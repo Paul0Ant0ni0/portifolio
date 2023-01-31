@@ -1,0 +1,42 @@
+<app-header>
+    <ng-container>
+        <mat-card>
+            <mat-card-title>
+                Cadastrar Projetos
+            </mat-card-title>
+            <mat-card-content>
+                <form>
+                
+                <section class="double-width">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Nome do projeto</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Link do site</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+
+                    <mat-form-field appearance="outline">
+                        <mat-label>Link do repositório (github)</mat-label>
+                        <input matInput type="text">
+                    </mat-form-field>
+                </section>
+                <section class="double-width">
+                    <fieldset class="img">
+                        <legend>Selecione uma foto: *</legend>
+                        <img src="{{ fotoUrl || img  }}" alt="capa" (click)="inputFile.click()">
+                        <input class="btn-add-img" #inputFile type="file" (change)="addImg($event)">
+                        <figure><strong>Arquivo: </strong>{{inputFile.value}}...</figure>
+                        <mat-progress-bar mode="indeterminate" *ngIf="isLoadUpload"></mat-progress-bar>
+                    </fieldset>
+                </section>
+
+                    <button type="submit" mat-raised-button color="primary">SALVAR</button>
+                </form>
+            </mat-card-content>
+
+
+        </mat-card>
+    </ng-container>
+</app-header>

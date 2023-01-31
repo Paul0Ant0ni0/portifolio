@@ -17,17 +17,7 @@ export class AuthService {
     const {email, senha} = usuario;
     const promise = this.firebaseAuth.signInWithEmailAndPassword(email, senha);
 
-    return from(promise).pipe(
-      catchError(error => {
-        if (error.code == "auth/user-not-found") {
-        alert("Usuário não cadastrado!");
-        } else {
-          alert("Erro ao autenticar")
-          console.error(error)
-        }
-        return EMPTY
-      })
-    )
+    return from(promise)
   }
   
 
