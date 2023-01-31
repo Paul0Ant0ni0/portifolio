@@ -2,52 +2,27 @@
     <ng-container class="container">
         <mat-card class="box">
             <mat-card-title>
-                Cadastrar Projetos
+                PROJETOS DESENVOLVIDOS
             </mat-card-title>
-            <mat-card-content>
-                <form [formGroup]="formProjeto">
-                <div class="container-form">
-                    <section class="double-width">
-                        <mat-form-field appearance="outline">
-                            <mat-label>Nome do projeto</mat-label>
-                            <input matInput type="text" name="nome" formControlName="nome">
-                            <mat-error *ngIf="formProjeto.get('nome')?.getError('required')">
-                                Este campo é obrigatório
-                            </mat-error>
-                        </mat-form-field>
-                      
-                        <mat-form-field appearance="outline">
-                            <mat-label>Link do site</mat-label>
-                            <input matInput type="text" name="site" formControlName="site">
-                            <mat-error *ngIf="formProjeto.get('nome')?.getError('required')">
-                                Este campo é obrigatório
-                            </mat-error>
-                        </mat-form-field>
-    
-                        <mat-form-field appearance="outline">
-                            <mat-label>Link do repositório (github)</mat-label>
-                            <input matInput type="text" name="repositorioGit" formControlName="repositorioGit">
-                            <mat-error *ngIf="formProjeto.get('nome')?.getError('required')">
-                                Este campo é obrigatório
-                            </mat-error>
-                        </mat-form-field>
-                    </section>
-                    <section class="double-width">
-                        <fieldset class="img">
-                            <legend>Selecione uma foto: *</legend>
-                            <img src="{{ fotoUrl || img  }}" alt="capa" (click)="inputFile.click()">
-                            <input class="btn-add-img" #inputFile type="file" (change)="addImg($event)" formControlName="foto">
-                            <figure><strong>Arquivo: </strong>{{inputFile.value}}...</figure>
-                            <mat-progress-bar mode="indeterminate" *ngIf="isLoadUpload"></mat-progress-bar>
-                        </fieldset>
-                    </section>
-                </div>
-                    <button class="btn" mat-raised-button color="primary">SALVAR</button>
-                </form>
-                
+            <mat-card-content class="conteudo-primario">
+                <mat-card *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">
+                    <mat-card-header>
+                        <img src="https://user-images.githubusercontent.com/31005408/178036109-e516ccab-fe6d-4099-8ff0-b9c2e07c5065.png"
+                            width="250" alt="goodpay">
+                    </mat-card-header>
+                    <mat-card-content class="conteudo-secundario">
+                            <p><b>Nome do projeto:</b> Good pay</p>
+                            <button class="btn" mat-raised-button>VISUALIZAR</button>
+                            <button class="btn btn-github" mat-raised-button>GITHUB</button>
+        
+                    </mat-card-content>
+                </mat-card>
+
             </mat-card-content>
-
-
+            <mat-paginator #paginator [length]="length" [pageSize]="9" [pageSizeOptions]="[9, 18, 30, 102]"
+                showFirstLastButtons>
+            </mat-paginator>
         </mat-card>
+
     </ng-container>
 </app-header>
