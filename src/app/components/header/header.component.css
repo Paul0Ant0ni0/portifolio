@@ -1,5 +1,5 @@
 mat-toolbar {
-    background-color: var(--azulescuro);
+    background-image: url("/assets/images/bg.gif");
     display: flex;
     align-items: center;
     justify-content: center;

@@ -8,7 +8,7 @@ const routes: Routes = [
     .then(m => m.LoginModule)
   },
 
-  { path: 'projeto',
+  { path: 'projetos',
     loadChildren: () => import('./views/projetos/projeto.module')
     .then(m => m.ProjetoModule) 
   }

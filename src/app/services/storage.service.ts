@@ -12,7 +12,7 @@ export class StorageService {
   ) { }
 
   public adicionarImagem(img: File):Observable<any>{
-    const promise = this.storage.upload(`fotos/${Date.now()}`, img);
+    const promise = this.storage.upload(`fotos/${img.name}`, img);
 
     return from(promise).pipe(
       catchError(error => {

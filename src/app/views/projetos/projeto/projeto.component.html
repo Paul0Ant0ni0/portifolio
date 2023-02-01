@@ -5,21 +5,30 @@
                 PROJETOS DESENVOLVIDOS
             </mat-card-title>
             <mat-card-content class="conteudo-primario">
-                <mat-card *ngFor="let i of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">
+                <mat-card *ngFor="let projeto of projetoList">
                     <mat-card-header>
-                        <img src="https://user-images.githubusercontent.com/31005408/178036109-e516ccab-fe6d-4099-8ff0-b9c2e07c5065.png"
-                            width="250" alt="goodpay">
+                        <img [src]="projeto.foto" width="250">
+                        <section class="double-width">
+                            <button class="btn" mat-raised-button
+                                [routerLink]="['editprojeto', projeto.id]"><mat-icon>edit</mat-icon></button>
+                            <button class="btn" mat-raised-button
+                                (click)="deletar(projeto.id)"><mat-icon>delete</mat-icon></button>
+                        </section>
+
                     </mat-card-header>
                     <mat-card-content class="conteudo-secundario">
-                            <p><b>Nome do projeto:</b> Good pay</p>
-                            <button class="btn" mat-raised-button>VISUALIZAR</button>
-                            <button class="btn btn-github" mat-raised-button>GITHUB</button>
-        
+                        <p><b>Nome do projeto:</b> {{projeto.nome}}</p>
+
+                        <a class="btn" mat-raised-button [href]="projeto.site" target="_blank">VISUALIZAR</a>
+                        <a class="btn btn-github" mat-raised-button [href]="projeto.repositorioGit"
+                            target="_blank">GITHUB</a>
+
+
                     </mat-card-content>
                 </mat-card>
 
             </mat-card-content>
-            <mat-paginator #paginator [length]="length" [pageSize]="9" [pageSizeOptions]="[9, 18, 30, 102]"
+            <mat-paginator #paginator [length]="projetoList.length" [pageSize]="5" [pageSizeOptions]="[5, 15, 30, 100]"
                 showFirstLastButtons>
             </mat-paginator>
         </mat-card>

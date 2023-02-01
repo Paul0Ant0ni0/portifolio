@@ -31,11 +31,11 @@
 
 
 .btn {
-    width: 55%;
+
     color: white;
     background-color: var(--azulescuro);
     margin-left: 5px;
-
+    display: inline-block;
   
 }
 
@@ -48,3 +48,11 @@
     transform: scale(0.9);
 }
 
+.double-width {
+    width: 60%;
+    display:  flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
