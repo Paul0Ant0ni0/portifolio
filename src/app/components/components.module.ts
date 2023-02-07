@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { MaterialModule } from '../shared/material/material.module';
 import { PopupComponent } from './popup/popup.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -14,6 +15,7 @@ import { PopupComponent } from './popup/popup.component';
   imports: [
     CommonModule,
     MaterialModule,
+    RouterModule // Ativa o routerLink no componente
     
   ],
   exports: [ // Exportando para os que os outros módulos tbm possa utiliza-los

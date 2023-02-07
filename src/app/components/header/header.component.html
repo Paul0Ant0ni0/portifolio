@@ -1,13 +1,58 @@
-<mat-toolbar>
-    <div class="container-menu">
-        <a routerLink="/home">Home</a>
-        <a mat-list-item routerLink="/projetos" routerLinkActive="active">Projeto</a>
-        <a routerLink="/sobre">Sobre</a>
-        <a routerLink="/contato">Contato</a>
-    </div>
+<mat-drawer-container autosize>
 
-    <div class="container">
-        <ng-content></ng-content> <!-- TAG RESPONSÁVEL POR RENDERIZAR AS VIEWS-->
-    </div>
+    <mat-drawer #drawer mode="over">
 
-</mat-toolbar>
+        <mat-nav-list>
+            <a mat-list-item routerLink="/meuperfil" routerLinkActive="active">
+                <i class="material-icons">badge</i>
+                Meu perfil
+            </a>
+            <a mat-list-item routerLink="/home" routerLinkActive="active">
+                <i class="material-icons">home</i>
+                Página principal
+            </a>
+            <a mat-list-item routerLink="/sobre" routerLinkActive="active">
+                <i class="material-icons">person</i>
+                Sobre
+            </a>
+
+            <a mat-list-item routerLink="/projetos" routerLinkActive="active" [matMenuTriggerFor]="projetos">
+                <i class="material-icons">group</i>
+                Projetos
+            </a>
+            <mat-menu #projetos="matMenu">
+                <button mat-menu-item [matMenuTriggerFor]="itens">Projetos</button>
+            </mat-menu>
+
+            <mat-menu #itens="matMenu">
+                <button mat-menu-item routerLink="/projetos/novoprojeto">Novo projeto</button>
+
+            </mat-menu>
+            <a mat-list-item routerLink="/contato" routerLinkActive="active">
+                <i class="material-icons">perm_phone_msg</i>
+                Contato
+            </a>
+
+            <a mat-list-item routerLinkActive="active">
+                <i class="material-icons">logout</i>
+                Logout
+            </a>
+
+        </mat-nav-list>
+    </mat-drawer>
+
+    <mat-drawer-content>
+        <mat-toolbar color="primary">
+            <button type="button" mat-icon-button (click)="drawer.toggle()">
+                <i class="material-icons">menu</i>
+            </button>
+
+        </mat-toolbar>
+
+
+        <div class="container">
+            <ng-content></ng-content>
+        </div>
+    </mat-drawer-content>
+
+</mat-drawer-container>
