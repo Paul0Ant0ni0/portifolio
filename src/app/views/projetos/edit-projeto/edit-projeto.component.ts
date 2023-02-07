@@ -37,7 +37,6 @@ export class EditProjetoComponent implements OnInit {
 
   public initialize(): void{
     const id: string = this.route.snapshot.paramMap.get('id') as string;
-    console.log(id)
     if(id != undefined){
       this.projetosService.listarPorId(id).subscribe(projeto => {
         this.projeto = projeto;

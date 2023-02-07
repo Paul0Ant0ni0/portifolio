@@ -8,6 +8,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -22,7 +23,13 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig), // inializando o nosso projeto firebase
     AngularFireAuthModule, // responsável por fazer a autenticação dos usuários da aplicação
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    ToastrModule.forRoot({
+      timeOut: 4000,
+      progressBar: true,
+      closeButton: true
+    }), 
+
     
   ],
   providers: [],
