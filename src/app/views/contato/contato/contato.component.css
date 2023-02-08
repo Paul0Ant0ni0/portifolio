@@ -1,0 +1,30 @@
+.box {
+    background-image: url("/assets/images/contato.svg");
+    background-repeat: no-repeat;
+    background-position: right;
+}
+
+.double-width {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.double-width mat-form-field {
+    width: 85%;
+}
+
+.btn-whatsapp{
+    background-image: url("/assets/images/whatsapp.png");
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    right: 35px;
+    top: 88%;
+}

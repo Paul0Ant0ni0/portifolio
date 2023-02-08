@@ -9,6 +9,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { ToastrModule } from 'ngx-toastr';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 
@@ -28,7 +29,8 @@ import { ToastrModule } from 'ngx-toastr';
       timeOut: 4000,
       progressBar: true,
       closeButton: true
-    }), 
+    }),
+    HttpClientModule
 
     
   ],

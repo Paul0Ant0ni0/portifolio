@@ -1,0 +1,65 @@
+<app-header>
+    <ng-container class="container">
+        <mat-card class="box">
+            <mat-card-title>
+                Entre em Contato
+            </mat-card-title>
+            <mat-card-content>
+                <form [formGroup]="formContato">
+                <div class="container-form">
+                    <section class="double-width">
+                        <mat-form-field appearance="outline">
+                            <mat-label>Nome</mat-label>
+                            <input matInput type="text" name="nome" formControlName="nome">
+                            <mat-error *ngIf="formContato.get('nome')?.getError('required')">
+                                Este campo é obrigatório
+                            </mat-error>
+                        </mat-form-field>
+                      
+                        <mat-form-field appearance="outline">
+                            <mat-label>Telefone</mat-label>
+                            <input matInput type="tel" name="telefone" formControlName="telefone">
+                            <mat-error *ngIf="formContato.get('telefone')?.getError('required')">
+                                Este campo é obrigatório
+                            </mat-error>
+                        </mat-form-field>
+    
+                        <mat-form-field appearance="outline">
+                            <mat-label>Assunto</mat-label>
+                            <input matInput type="text" name="assunto" formControlName="assunto">
+                            <mat-error *ngIf="formContato.get('assunto')?.getError('required')">
+                                Este campo é obrigatório
+                            </mat-error>
+                        </mat-form-field>
+
+                        
+                        <mat-form-field appearance="outline">
+                            <mat-label>Email</mat-label>
+                            <input matInput type="email" name="email" formControlName="email">
+                            <mat-error *ngIf="formContato.get('email')?.getError('email')">
+                                Este campo é obrigatório
+                            </mat-error>
+                        </mat-form-field>
+
+                        
+                        <mat-form-field appearance="outline">
+                            <mat-label>Mensagem</mat-label>
+                            <input matInput type="text" name="mensagem" formControlName="mensagem">
+                            <mat-error *ngIf="formContato.get('mensagem')?.getError('required')">
+                                Este campo é obrigatório
+                            </mat-error>
+                        </mat-form-field>
+                        
+                    </section>
+            
+                </div>
+                    <button class="btn" mat-raised-button color="primary" [disabled]="!formContato.valid" (click)="enviarEmail()">ENVIAR</button>
+                </form>
+            </mat-card-content>
+
+        </mat-card>
+
+        <a mat-fab class="btn-whatsapp" href="https://api.whatsapp.com/send/?phone=19988537825&text&type=phone_number&app_absent=0">
+        </a>
+    </ng-container>
+</app-header>

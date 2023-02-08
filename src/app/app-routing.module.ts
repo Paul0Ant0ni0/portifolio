@@ -18,6 +18,11 @@ const routes: Routes = [
   { path: 'projetos',
     loadChildren: () => import('./views/projetos/projeto.module')
     .then(m => m.ProjetoModule) 
+  },
+
+  { path: 'contato',
+   loadChildren: () => import('./views/contato/contato.module')
+   .then(m => m.ContatoModule) 
   }
 ];
 
