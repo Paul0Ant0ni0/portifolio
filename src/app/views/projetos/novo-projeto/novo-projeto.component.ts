@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Projeto } from 'src/app/models/projeto';
+import { ApiImgurService } from 'src/app/services/api-imgur.service';
 import { ProjetosService } from 'src/app/services/projetos.service';
 import { StorageService } from 'src/app/services/storage.service';
 
@@ -19,6 +20,7 @@ export class NovoProjetoComponent implements OnInit {
 
   constructor(
     private storage: StorageService,
+    private apiImgurService: ApiImgurService,
     private projetoService: ProjetosService,
     fb: FormBuilder
 
@@ -45,6 +47,16 @@ export class NovoProjetoComponent implements OnInit {
     }else{
       alert("Dados inválido!!!")
     }
+  }
+
+
+  public upload(event: any){
+    this.isLoadUpload = true;
+    const file: File = event.target.files[0];
+    this.apiImgurService.enviarImagem(file).subscribe(urlImage => {
+      console.log(urlImage);
+      this.isLoadUpload = false;
+    })
   }
 
   public addImg(event: any) {

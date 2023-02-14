@@ -23,7 +23,9 @@ const routes: Routes = [
   { path: 'contato',
    loadChildren: () => import('./views/contato/contato.module')
    .then(m => m.ContatoModule) 
-  }
+  },
+
+  { path: 'meu-perfil', loadChildren: () => import('./views/meu-perfil/meu-perfil.module').then(m => m.MeuPerfilModule) }
 ];
 
 @NgModule({

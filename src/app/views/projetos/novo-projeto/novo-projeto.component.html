@@ -37,7 +37,7 @@
                         <fieldset class="img">
                             <legend>Selecione uma foto: *</legend>
                             <img src="{{ fotoUrl || img  }}" alt="capa" (click)="inputFile.click()">
-                            <input class="btn-add-img" #inputFile type="file" (change)="addImg($event)" formControlName="foto">
+                            <input class="btn-add-img" #inputFile type="file" (change)="upload($event)" formControlName="foto">
                             <figure><strong>Arquivo: </strong>{{inputFile.value}}...</figure>
                             <mat-progress-bar mode="indeterminate" *ngIf="isLoadUpload"></mat-progress-bar>
                         </fieldset>

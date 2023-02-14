@@ -10,9 +10,7 @@ import { NoticacaoService } from './noticacao.service';
   providedIn: 'root'
 })
 export class EnviarEmailService {
-  public readonly BASE_URL: string = "http://localhost:3000/send-email"; // Endpoint
-
-
+  public readonly BASE_URL: string = "https://portifolio-back-end-production-10e6.up.railway.app/send-email"; // Endpoint
 
   constructor(
     private http: HttpClient,
@@ -26,45 +24,54 @@ export class EnviarEmailService {
       subject: contato.assunto,
       text: contato.assunto,
       html: `
-      <!DOCTYPE html>
-        <html lang="pt-BR">
-        <head>
-            <meta charset="UTF-8">
-            <meta http-equiv="X-UA-Compatible" content="IE=edge">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Email</title>
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-        </head>
-        <body style="background-image: url('https://i.imgur.com/bQXEYGE.png'); background-repeat: no-repeat; background-size: cover; display: flex; flex-direction: column; align-items: center; margin: 0">
-            <div class="card" style="width: 45rem;">
-          <section class="double-width" style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
-            <img src="blob:https://imgur.com/d12e26fc-1c09-4861-b897-04ce7903e785" class="card-img-top" alt="Email"  >
-          </section>
-          <div>
-            <section class="double-width">
-              <div class="card-body" >
-                <h5 class="card-title">Nome: ${contato.nome}</h5>
-                <h5 class="card-title">Email: ${contato.email}</h5>
-                <h5 class="card-title">Assunto: ${contato.assunto}</h5>
-            
-                <p class="card-text">${contato.mensagem}</p>
-              </div>
-            </section>
 
-          </div>
-          <a href="https://wa.me/${contato.telefone}" style="background-image: url('https://i.imgur.com/Pjgxm65.png'); background-position: center; background-repeat: no-repeat; border-radius: 8px; width: 25%;
-          padding: 20px 45px; border: 1px solid black; margin: 8px;"></a>
-        </div>
-        </body>
-        </html>
+        <!DOCTYPE html>
+          <html lang="pt-BR">
+
+          <head>
+              <meta charset="UTF-8">
+              <meta http-equiv="X-UA-Compatible" content="IE=edge">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Email</title>
+          </head>
+
+          <body style="background-image: url(https://lh3.googleusercontent.com/drive-viewer/AAOQEOTv5R8D5xnLURMG8mM4ikIIAqYp3L0LmjBj-u6MnkUbZ94Vegc3RTTwQbVsIoYCGUMD3qoB3F1oU1Cj4cXbj7Gc3ebhHA=w1920-h902); background-repeat: no-repeat;
+            background-size: cover; display: flex; flex-direction: column; justify-content:center; align-items: center;
+            margin: 0; padding: 25px; font-family: Arial, Helvetica, sans-serif; box-sizing: border-box;">
+            <div style="background-color: white; width: 85%; box-shadow:  1px 1px 6px 7px rgba(79, 79, 79, 0.13); padding: 25px;
+            border-radius: 8px; font-size: 19px; display:flex; flex-direction: row; margin-top: 100px; height: auto; border: 1px solid rgb(109, 109, 109);">
+            
+             
+                  <section style="width: 75%;">
+                      <div class="card-body">
+                          <p><b>Nome:</b> ${contato.nome}</p>
+                          <p><b>Email:</b> ${contato.email}</p>
+                          <p><b>Assunto:</b>  ${contato.assunto} </p>
+
+                          <p style="text-align:justify; color: rgb(126, 126, 126); width: 65%">${contato.mensagem}</p>
+                          
+
+                      </div>
+                  </section>
+                  <section style="width: 68%; background-image: url(https://lh3.googleusercontent.com/drive-viewer/AAOQEOSMHJnpLVTMy3np6y_Ls2-8izyZwRIiyttwVNJqnLQqBG2M-PEGjiOCTd6yru9kc72Fj-O2n5gMwFxKAg6TpKZuvO71zQ=w1920-h902); background-position: center;
+                  background-repeat: no-repeat; background-size: 100% 100%; display: flex; justify-content: end; align-items: start;">
+                     <a href="https://wa.me/${contato.telefone}" style="background-image: url(https://lh3.googleusercontent.com/drive-viewer/AAOQEORXEq79U5xit0bl10Jql4yY-mgaehLn2wBUX8DfWRrl6aRwWjTz9vFt5-vq1Rb6_7iyPv92nvgoFfNBM79OBotXbtCPnA=w1920-h902);
+                     background-position: center  bottom 0.1px; background-repeat: no-repeat; border-radius: 8px; width: 5%;
+                        padding: 25px 20px; border: 1px solid black; margin: 8px;"></a>
+                 </section>
+                
+              </div>
+
+          </body>
+
+          </html>
       `
     }
 
 
     return this.http.post<Contato>(`${this.BASE_URL}`, email).pipe(
       catchError(error => {
-        this.notificacao.showError("ERRO!!!", "Erro ao criar novo cliente.");
+        this.notificacao.showError("ERRO!!!", "Erro ao enviar o e-mail.");
         console.error(error);
         return EMPTY;
       })
