@@ -1,0 +1,95 @@
+.container-principal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    
+    
+}
+
+
+.double-width:first-child{
+    width: 50%;
+}
+
+.double-width:nth-child(2n){
+    width: 50%;
+
+}
+
+.double-width {
+    margin: 8px;
+    padding: 10px;
+    text-align: justify;
+}
+
+fieldset {
+    border: 1px solid white;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+.foto {
+    height: 150px;
+    float: left;
+    margin-right: 8px;
+}
+.carousel {
+    background-image: url("https://cdn.dribbble.com/users/3456021/screenshots/12096013/media/5c34852703790e5221278f96215d2d3e.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 16px -8px 67px 16px rgba(0,0,0,0.66);
+    border-radius: 10px;
+
+}
+
+.carousel:hover {
+    transition: 5s;
+    box-shadow: inset 10px 10px 5px 0px rgba(111,252,139,0.45);
+}
+
+.carousel, .carousel-cell {
+    height: 500px !important;
+
+}
+
+
+.carousel-cell img {
+    filter: grayscale(1);
+    transition: scale 2s;
+}
+
+.carousel-cell img:hover {
+    scale: 5;
+    filter: grayscale(0);
+}
+
+.carousel-cell {
+    height: 250px;
+    background-color: rgba(0, 255, 255, 0);
+    display: flex;
+    flex-direction: column;
+}
+
+.carousel-cell img{
+    height: 250px;
+}
+
+table {
+    width: 100%;
+    box-shadow: none;
+}
+
+.btn-whatsapp{
+    background-image: url("/assets/images/whatsapp.png");
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    height: 50px;
+    width: 50px;
+    right: 35px;
+    top: 88%;
+}

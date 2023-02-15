@@ -25,7 +25,10 @@ const routes: Routes = [
    .then(m => m.ContatoModule) 
   },
 
-  { path: 'meu-perfil', loadChildren: () => import('./views/meu-perfil/meu-perfil.module').then(m => m.MeuPerfilModule) }
+  { path: 'meuperfil', loadChildren: () => import('./views/meu-perfil/meu-perfil.module').then(m => m.MeuPerfilModule) },
+
+  { path: 'home', loadChildren: () => import('./views/home/home.module').then(m => m.HomeModule) }
+
 ];
 
 @NgModule({

@@ -31,7 +31,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
       progressBar: true,
       closeButton: true
     }),
-    HttpClientModule
+    HttpClientModule,
 
     
   ],
